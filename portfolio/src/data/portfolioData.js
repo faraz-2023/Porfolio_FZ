@@ -25,7 +25,7 @@ export const education = {
   institution: "Ghousia College of Engineering",
   degree: "Bachelor of Engineering (Computer Science & Engineering)",
   year: "2023 – 2027",
-  location: "Ramanagara, Karnataka",
+  location: "Bangalore, Karnataka",
 };
 
 export const experience = [
