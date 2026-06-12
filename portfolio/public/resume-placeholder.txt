@@ -1,0 +1,4 @@
+Place your resume PDF here as: resume.pdf
+Path: public/resume.pdf
+
+The download buttons throughout the portfolio will serve this file.
