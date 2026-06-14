@@ -40,6 +40,12 @@ const Navbar = () => {
 
   const handleNavClick = (href) => {
     setMobileOpen(false);
+    if (href === '#home') {
+      window.history.replaceState(null, '', '#home');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setActiveSection('home');
+      return;
+    }
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };

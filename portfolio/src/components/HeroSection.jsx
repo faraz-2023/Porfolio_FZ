@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, useMotionValue } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { Download, Mail, ChevronDown, Briefcase } from 'lucide-react';
+import { Download, Mail, ChevronDown } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import ParticleBackground from './ParticleBackground';
 import { ResumeContext } from '../App';
@@ -55,13 +55,6 @@ const HeroSection = () => {
       style={{ background: 'radial-gradient(ellipse at 65% 50%, rgba(139,0,0,0.10) 0%, #050505 60%)' }}
     >
       <ParticleBackground />
-
-      {/* grid */}
-      <div className="absolute inset-0 z-0 opacity-[0.025]"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)',
-          backgroundSize: '80px 80px',
-        }} />
 
       {/* glows */}
       <div className="absolute top-1/3 right-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full pointer-events-none opacity-10"
@@ -137,25 +130,6 @@ const HeroSection = () => {
                 </div>
               )}
 
-              {/* Open to Work badge */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 0.8 }}
-                className="absolute top-4 right-2 sm:right-4 lg:right-0 flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl text-xs font-semibold text-white z-20"
-                style={{ background: 'linear-gradient(135deg,#DC143C,#8B0000)', boxShadow: '0 4px 20px rgba(220,20,60,0.5)' }}
-              >
-                <Briefcase size={10} /> Open to Work
-              </motion.div>
-
-              {/* Tech badge */}
-              <motion.div
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 1.5 }}
-                className="absolute top-16 sm:top-20 left-0 sm:left-2 lg:-left-4 px-2.5 py-1.5 rounded-xl text-xs font-mono text-white/60 z-20"
-                style={{ background: 'rgba(5,5,5,0.88)', border: '1px solid rgba(255,255,255,0.10)', backdropFilter: 'blur(10px)' }}
-              >
-                React · TS · Tailwind
-              </motion.div>
             </motion.div>
           </div>
 
