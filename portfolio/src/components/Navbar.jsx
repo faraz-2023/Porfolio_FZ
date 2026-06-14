@@ -38,16 +38,28 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleNavClick = (href) => {
-    setMobileOpen(false);
-    if (href === '#home') {
-      window.history.replaceState(null, '', '#home');
+  const scrollToSection = (href) => {
+    const sectionId = href.replace('#', '');
+
+    if (sectionId === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      setActiveSection('home');
-      return;
+    } else {
+      const el = document.getElementById(sectionId);
+      if (!el) return;
+
+      const navHeight = navRef.current?.offsetHeight ?? 72;
+      const targetTop = el.getBoundingClientRect().top + window.scrollY - navHeight + 1;
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
     }
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+
+    window.history.replaceState(null, '', href);
+    setActiveSection(sectionId);
+  };
+
+  const handleNavClick = (href) => {
+    const shouldWaitForMenuClose = mobileOpen;
+    setMobileOpen(false);
+    window.setTimeout(() => scrollToSection(href), shouldWaitForMenuClose ? 120 : 0);
   };
 
   const resumeCtx = useContext(ResumeContext);
@@ -78,6 +90,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <button
+              type="button"
               onClick={() => handleNavClick('#home')}
               className="flex items-center gap-2 group"
             >
@@ -94,6 +107,7 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
                 <button
+                  type="button"
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
                   className={`relative px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 rounded-lg
@@ -133,6 +147,7 @@ const Navbar = () => {
 
             {/* Mobile menu toggle */}
             <button
+              type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
               className="lg:hidden p-2 text-white/70 hover:text-white transition-colors"
             >
@@ -159,6 +174,7 @@ const Navbar = () => {
               <div className="px-6 py-6 flex flex-col gap-1">
                 {navLinks.map((link, i) => (
                   <motion.button
+                    type="button"
                     key={link.label}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -174,6 +190,7 @@ const Navbar = () => {
                   </motion.button>
                 ))}
                 <motion.button
+                  type="button"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navLinks.length * 0.05 }}
