@@ -104,9 +104,26 @@ const HeroSection = () => {
                   className="h-full w-auto object-cover object-top select-none"
                   style={{
                     maxWidth: '100%',
-                    maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
-                    filter: 'drop-shadow(0 0 30px rgba(220,20,60,0.30))',
+                    /* fade all 4 edges so image blends seamlessly into dark bg */
+                    maskImage: `
+                      radial-gradient(
+                        ellipse 80% 90% at 50% 45%,
+                        black 40%,
+                        rgba(0,0,0,0.85) 55%,
+                        rgba(0,0,0,0.4) 70%,
+                        transparent 100%
+                      )
+                    `,
+                    WebkitMaskImage: `
+                      radial-gradient(
+                        ellipse 80% 90% at 50% 45%,
+                        black 40%,
+                        rgba(0,0,0,0.85) 55%,
+                        rgba(0,0,0,0.4) 70%,
+                        transparent 100%
+                      )
+                    `,
+                    filter: 'drop-shadow(0 0 40px rgba(220,20,60,0.25))',
                   }}
                 />
               ) : (
