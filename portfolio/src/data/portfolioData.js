@@ -189,6 +189,7 @@ export const achievements = [
 export const typingStrings = [
   "Frontend Engineer",
   "React Developer",
+  "Python Developer",
   "Software Engineer",
   "UI Enthusiast",
   "Problem Solver",

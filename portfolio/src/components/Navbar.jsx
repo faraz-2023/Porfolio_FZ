@@ -186,7 +186,6 @@ const Navbar = () => {
         </AnimatePresence>
       </motion.nav>
 
-      {/* Floating Resume Button */}
       <motion.button
         onClick={handleResumeDownload}
         initial={{ opacity: 0, x: 100 }}
@@ -194,7 +193,7 @@ const Navbar = () => {
         transition={{ delay: 2, duration: 0.5 }}
         whileHover={{ scale: 1.05, x: -4 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex items-center gap-2 py-3 px-4 text-xs font-semibold text-white rounded-l-xl shadow-xl"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden sm:flex items-center gap-2 py-3 px-4 text-xs font-semibold text-white rounded-l-xl shadow-xl"
         style={{
           background: 'linear-gradient(135deg, #DC143C, #8B0000)',
           boxShadow: '-4px 0 30px rgba(220,20,60,0.5)',

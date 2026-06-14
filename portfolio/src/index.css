@@ -38,6 +38,15 @@
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
     cursor: none;
+    /* prevent iOS rubber-band + zoom tap */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* restore cursor on touch devices */
+  @media (pointer: coarse) {
+    body { cursor: auto; }
+    .cursor-dot, .cursor-outline { display: none; }
   }
 
   ::selection {
