@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import { Mail, Download, Heart, Phone, MapPin } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { RESUME_DOWNLOAD_URL } from '../data/portfolioData';
 
 const Footer = () => {
   const handleResumeDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Faraz_Akram_Resume.pdf';
-    link.click();
+    const a = document.createElement('a');
+    a.href = RESUME_DOWNLOAD_URL;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.click();
   };
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 

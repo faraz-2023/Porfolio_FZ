@@ -1,3 +1,11 @@
+// ─── Resume URL ───────────────────────────────────────────────
+// Your Google Drive file ID: 13wnEv4lvZO9-DDnCdcLP-CXohumsm7YO
+// Direct open link (opens in browser):
+export const RESUME_URL = 'https://ik.imagekit.io/y6bzddgpa/resume.pdf';
+// Direct download link (forces download):
+export const RESUME_DOWNLOAD_URL = 'https://ik.imagekit.io/y6bzddgpa/resume.pdf';
+// ──────────────────────────────────────────────────────────────
+
 export const personalInfo = {
   name: "Faraz Akram",
   title: "Frontend Engineer",
